@@ -1,0 +1,155 @@
+/*css-sample.html*/
+
+h1{/*selector por tagname*/
+	font-family: arial;
+}
+
+#some-id{/*selector por id*/
+	color: peru;
+}
+
+.some-class{/*selector por clase*/
+	border: 1px solid red;
+	margin: 10px;
+	padding: 10px;
+}
+
+ul.some-class{/*conjunción de clases*/
+	background: slategray;
+}
+
+ul.some-class li{/*selector por anidación*/
+	background: white;
+	color: slategray;
+	border-bottom: 1px solid slategray;
+}
+
+button{
+	width: 100px;
+	height: 30px;
+	border: 1px solid navy;
+	color: navy;
+	background: none;
+	border-radius: 5px;
+	box-shadow: 3px 3px 10px #333;
+	transition: all 1s ease;
+	opacity: 1;
+}
+
+button:hover{/*pseudoselector de estado*/
+	background: navy;
+	color: white;
+	cursor: pointer;
+	opacity: 0;
+}
+
+input[type="text"]{/*selector por atributo*/
+	width: 200px;
+	height: 30px;
+	background: white;
+	border: 1px solid #eaeaea;
+	box-shadow: 3px 3px 6px #333;
+	border-radius: 5px;
+}
+
+input[type="password"]{
+	width: 200px;
+	height: 30px;
+	background: white;
+	border: 1px solid #333;
+	box-shadow: 3px 3px 6px #333;
+	border-radius: 5px;
+	padding-left: 10px;
+
+}
+
+ul li:nth-of-type(3){
+	background: peru;
+}
+
+ul li:nth-of-type(2n){
+	background: red;
+}
+
+ul li:nth-of-type(2n + 3){
+	background: skyblue;
+}
+
+/*id="ordered-list"*/
+
+ol#ordered-list li:nth-of-type(odd){
+	background: lightgray;
+}
+
+ol li:nth-of-type(even){
+	background: pink;
+}
+
+/*=======*/
+
+/*index.html*/
+
+*{/*selector universal*/
+	color: white;
+	font-family: "arial";
+}
+
+body{
+	background-image: linear-gradient(rgba(25,25,25,.2), rgba(0,0,0,.8) ),url("../img/background.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.container{
+	display: flex;
+}
+
+#left-side{
+	width: 40%;
+	/*border: 1px solid white;*/
+}
+
+#right-side{
+	width: 60%;
+	/*border: 1px solid lightgray;*/
+}
+
+.personal-data img{
+	width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    display: block;
+}
+
+.personal-data .social-icon-wrapper{
+	display: flex;
+	justify-content: center;
+}
+
+.personal-data .social-icon-wrapper img{
+	width: 50px;
+	height: 50px;
+	background: white;
+	margin: 5px;
+}
+
+.personal-data .social-icon-wrapper img:hover{
+	cursor: pointer;
+}
+
+.p-20px{
+	padding: 20px;
+}
+
+.text-center{
+	text-align: center;
+}
+
+
+
+.experience-wrapper{
+	background: rgba(255,255,255,.5);
+	border-radius: 5px;
+	
+}
