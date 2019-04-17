@@ -52,6 +52,12 @@ var studentsList = [{
 
 }]
 
+var purposesDb = firebase.database();
+var purposesReference = firebase.database().ref('purposesCollection/')
+var usersReference = firebase.database().ref('usersCollections/');
+var purposesContent;
+
+
 function twoNumberAddtition(number1, number2) {
     return number1 + number2;
 }
@@ -121,7 +127,8 @@ function getFormData() {
     projectObject.customerName = customerName;
     console.log(projectObject);
     $("input").val("");
-    $("textarea").text("")
+    $("textarea").text("");
+    purposesReference.push(projectObject)
 }
 
 $("#submit-button").on("click", function() {
@@ -132,25 +139,7 @@ $("#get-purposes").on("click",function(){
 	getPurposes();
 })
 
-var projectArray = [{
-    projectName: "Desarrollo de plataforma Freelancer",
-    projectDescription: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, dolores consequuntur voluptatem, cupiditate, dicta est consequatur quis ipsa quasi fuga obcaecati soluta corrupti assumenda unde odio recusandae facere molestiae?",
-    customerMail: "israel@kodemia.mx",
-    customerPhone: "5545789645",
-    customerName: "Israel Salinas Martínez"
-}, {
-    projectName: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, doloremque.",
-    projectDescription: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, dolores consequuntur voluptatem, cupiditate, dicta est consequatur quis ipsa quasi fuga obcaecati soluta corrupti assumenda unde odio recusandae facere molestiae?",
-    customerMail: "leonardo@kodemia.mx",
-    customerPhone: "5598789645",
-    customerName: "Leonardo Santiago"
-}, {
-    projectName: "Lorem ipsum dolor.",
-    projectDescription: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, dolores consequuntur voluptatem, cupiditate, dicta est consequatur quis ipsa quasi fuga obcaecati soluta corrupti assumenda unde odio recusandae facere molestiae?",
-    customerMail: "veronica@kodemia.mx",
-    customerPhone: "5545789645",
-    customerName: "Verónica Nemecio"
-}]
+var projectArray = [];
 
 var projectPurposeHtml = `<div class="col-lg-3">
 								<div class="card my-2">
@@ -168,8 +157,14 @@ var projectPurposeHtml = `<div class="col-lg-3">
 							</div>`
 
 function getPurposes() {
-    $("#purposes-wrapper").empty()
-    projectArray.forEach(function(value, index) {
+    
+    console.log(purposesContent)
+    $("#purposes-wrapper").empty();
+    /*Object.values(purposesContent).forEach(function(value){
+        console.log(value);
+        projectArray.push(value);
+    });*/
+    $.each(purposesContent,function(key,value){
         console.log(value);
         var projectName = value.projectName;
         var projectDescription = value.projectDescription;
@@ -178,16 +173,16 @@ function getPurposes() {
         var customerMail = value.customerMail;
 
         var projectPurposeHtml = `<div class="col-lg-3">
-								<div class="card my-2">
-									<div class="card-body">
-										<h5 class="card-title">${projectName}</h5>
-										<h6 class="card-subtitle mb-2 text-muted">${customerName}</h6>
-										<p class="card-text">${projectDescription}</p>
-										<p>${customerMail}</p>
-										<p>${customerPhone}</p>
-									</div>
-								</div>
-							</div>`
+                                <div class="card my-2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${projectName}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">${customerName}</h6>
+                                        <p class="card-text">${projectDescription}</p>
+                                        <p>${customerMail}</p>
+                                        <p>${customerPhone}</p>
+                                    </div>
+                                </div>
+                            </div>`
 
         $("#purposes-wrapper").append(projectPurposeHtml);
     })
@@ -195,4 +190,19 @@ function getPurposes() {
 
 
 
-//$("#project-name").val(projectObject); /*setter*/
+
+purposesReference.on('value', function(snapshot) {
+    console.log(snapshot.val());
+    purposesContent = snapshot.val();
+    getPurposes();
+});
+
+/*var newPurposal = {
+    projectName: "New name",
+    projectDescription: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, dolores consequuntur voluptatem, cupiditate, dicta est consequatur quis ipsa quasi fuga obcaecati soluta corrupti assumenda unde odio recusandae facere molestiae?",
+    customerMail: "new@kodemia.mx",
+    customerPhone: "5545789645",
+    customerName: "new"
+}*/
+
+
