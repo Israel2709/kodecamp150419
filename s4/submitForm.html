@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-grid.min.css">
+		<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<form>
+						<div class="form-group">
+							<label for="project-name">Nombre del proyecto</label>
+							<input type="text" class="form-control" id="project-name" placeholder="Ingresa el nombre del proyecto" value="Desarrollo de plataforma Freelancer">
+						</div>
+						<div class="form-group">
+							<label for="customer-name">Nombre del cliente</label>
+							<input type="text" class="form-control" id="customer-name" placeholder="Ingresa tu nombre" value="Israel Salinas Martínez">
+						</div>
+						<div class="form-group">
+							<label for="project-description">Descripción del proyecto</label>
+							<textarea class="form-control" id="project-description" rows="3" value="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet quisquam voluptatem possimus aut quas! Adipisci.">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet quisquam voluptatem possimus aut quas! Adipisci.</textarea>
+						</div>
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+									<label for="customer-mail">Dirección de correo</label>
+									<input type="email" class="form-control" id="customer-mail" placeholder="Ingresa tu email de contacto" value="israel@kodemia.mx">
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="form-group">
+									<label for="customer-phone">Número de teléfono</label>
+									<input type="text" class="form-control" id="customer-phone" placeholder="Ingresa tu teléfono" value="5543857963">
+								</div>
+							</div>
+						</div>
+						<!--div class="form-group">
+							<label for="customer-phone">Habilidades requeridas</label>
+							<div class="dropdown">
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Dropdown button
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="#">Action</a>
+									<a class="dropdown-item" href="#">Another action</a>
+									<a class="dropdown-item" href="#">Something else here</a>
+								</div>
+							</div>
+						</div-->
+						
+						<!--div class="form-group form-check">
+							<input type="checkbox" class="form-check-input" id="exampleCheck1">
+							<label class="form-check-label" for="exampleCheck1">Check me out</label>
+					</div-->
+					<div id="submit-button" class="btn btn-primary">Ingresar propuesta</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyBeVNjBjBTPs2satLoShwys2zsj1QR9lLQ",
+	    authDomain: "freelance-platform.firebaseapp.com",
+	    databaseURL: "https://freelance-platform.firebaseio.com",
+	    projectId: "freelance-platform",
+	    storageBucket: "freelance-platform.appspot.com",
+	    messagingSenderId: "929540493280"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+	<script src="js/jquery-3.4.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

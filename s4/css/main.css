@@ -1,0 +1,9 @@
+.data-wrapper{
+	width: 100%;
+}
+
+@media only screen and (min-width: 991px) {
+  	.data-wrapper{
+		width: 75%;
+	}
+}
